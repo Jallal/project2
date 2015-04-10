@@ -1,0 +1,99 @@
+@charset "utf-8";
+
+body
+{
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAATElEQVQYV2O0O3X+PwMQHDIzZATRuAAj0QqxmfDghh3YFgWNQ3BbsFpHtEJstjBWnIdY02GIsIYyhdh0f5oZB7aFL30Rfs8QrRCbLQDvfSALXdnbSgAAAABJRU5ErkJggg==) repeat;
+}
+
+.break
+{
+    word-break: break-all;
+}
+
+nav {
+    margin: 1em 0.5em -1em 1em;
+    text-align: right;
+    font-family: "Times New Roman", sans-serif;
+    color:#FFFFFF;
+}
+
+table {
+    background-color: white;
+    border-collapse: collapse;
+    font-family: Calibri, sans-serif;
+    margin-left:auto;
+    margin-right:auto
+}
+colgroup, tbody {
+    border: solid medium;
+}
+td {
+    border: solid thin;
+    height: 4em; width: 4em;
+    text-align: center;
+    padding: 0;
+}
+
+
+.cell {
+    font-size: 2em;
+}
+
+.cell:link, .cell:visited {
+    color: green;
+    text-decoration: none;
+}
+
+.guess-right:link, .guess-right:visited  {
+    color: green;
+    text-decoration: none;
+}
+
+.guess-wrong:link, .guess-wrong:visited  {
+    color: red;
+    text-decoration: none;
+}
+
+.blank-cell:link {
+    text-decoration: none;
+}
+
+.notes {
+    text-align: left;
+    font-style: italic;
+    vertical-align: top;
+}
+
+.note-div {
+    padding: .05em 0 .05em 0;
+}
+
+.note-span {
+    padding: 0 .25em 0 .25em;
+}
+
+.wrong {
+    color: orangered !important;
+
+}
+
+.guess-box {
+    padding-top: 30px;
+    height: 205px;
+    width: 300px;
+    margin: 0 auto;
+    background-color: lightblue;
+}
+
+.guess-box form {
+    text-align: center;
+    display: block;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+h1 {
+    text-align: center;
+}
