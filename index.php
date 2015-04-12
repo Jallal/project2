@@ -25,13 +25,13 @@ $view = new SudokuView($sudoku);
 <div class="guess-box">
 
 <br>Enter the player name to start a new game:<br>
-<form   name=username" action="game-post.php?username" method="post">
+<form   name=username" action="post/game-post.php?username" method="post">
     <input type="text" name="name" placeholder="John" value="">
     <br>
     <input type="submit"  name ="username" value="Start">
 </form>
 
-    <a href="game-post.php?c">Cheat Mode</a>
+    <a href="post/game-post.php?c">Cheat Mode</a>
 </div>
 
 </body>

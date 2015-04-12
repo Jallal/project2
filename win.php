@@ -23,7 +23,7 @@ $view = new SudokuView($sudoku);
 <header>
     <nav>
         <p>
-            <a href="game-post.php?n">New Game</a>
+            <a href="post/game-post.php?n">New Game</a>
         </p>
     </nav>
 </header>

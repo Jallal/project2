@@ -87,19 +87,30 @@ class SudokuModel{
         $this->numNotes++;
     }
 
+    public function getNotesForCell($row, $column) {
+        return $this->cells[$row][$column]->getNotes();
+    }
+
     public function getNumNotes() {
         return $this->numNotes;
     }
 
-    public function getNotesForCell($row, $column) {
-        return $this->cells[$row][$column]->getNotes();
-    }
+
     public function getusername(){
 
         return $this->username;
     }
     public function Setusername($name){
         $this->username = $name;
+
+    }
+
+    public function getGame(){
+        return  $this->game;
+
+    }
+    public function getAnswer(){
+        return $this->answer;
 
     }
 

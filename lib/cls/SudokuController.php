@@ -8,7 +8,7 @@
 
 class SudokuController {
 
-    private $sudoku;                // The Wumpus object we are controlling
+    private $sudoku;                // The sudoku object we are controlling
     private $page ='game.php';     // The next page we will go to
     private $reset = false;
     private $cheatmode = false;

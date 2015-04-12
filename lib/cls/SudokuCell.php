@@ -14,7 +14,6 @@ class SudokuCell {
     private $row;              // Row index for the cell 0-8
     private $column;           // Column index for the cell 0-8
     private $defaultValue;
-    private $currentValue;
 
     public function __construct($answer, $row, $column, $defaultValue) {
         $this->answer = $answer;

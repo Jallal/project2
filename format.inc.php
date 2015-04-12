@@ -8,7 +8,7 @@
 
 function present_header($title) {
     $html = "<header>";
-    $html .= "<nav><p><a href=\"game-post.php?m=Give up\">Give up </a></p></nav>";
+    $html .= "<nav><p><a href=\"post/game-post.php?m=Give up\">Give up </a></p></nav>";
     $html .= "<h1>$title</h1>";
     $html .= "</header>";
 
