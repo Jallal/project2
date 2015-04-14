@@ -12,21 +12,28 @@ class SudokuController {
     private $page ='game.php';     // The next page we will go to
     private $reset = false;
     private $cheatmode = false;
+    private $loadDbase = false;
     private $setUsername = false;
 
 
-    public function __construct($sudoku, $request) {
+    public function __construct($GameSudoku,$sudoku,$request) {
 
-            $this->sudoku = $sudoku;
+            $this->sudoku = $GameSudoku;
 
-        if(isset($request['username'])){
-            $this->reset = true;
-            $this->setUsername = true;
+        if(isset($request['save'])){
+            $save =  new SaveSudokuGame($GameSudoku,$sudoku);
+            //needs a userid
+            $save->processSave('elhazzat');
+        }
+        elseif(isset($request['load'])){
+
+            $this->loadDbase = true;
         }
 
         elseif(isset($request['c'])){
             //activate the cheat mode
             $this->cheatmode = true;
+
         }
 
         elseif(isset($request['submit_button'])) {
@@ -66,8 +73,13 @@ class SudokuController {
     }
 
     public function IscheatMode(){
-
        return $this->cheatmode;
+    }
+
+    public function IsLoadfromdbase(){
+
+
+        return $this->loadDbase;
     }
 
     /** Move request
@@ -89,11 +101,9 @@ class SudokuController {
     }
 
     public function giveup(){
-        $this->reset = true;
         $this->page = 'giveup.php';
     }
     public function won(){
-        $this->reset = true;
         $this->page = 'win.php';
 
     }

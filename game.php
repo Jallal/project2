@@ -7,7 +7,7 @@
  */
 require 'format.inc.php';
 require 'lib/game.inc.php';
-$view = new SudokuView($sudoku);
+$view = new SudokuView($GameSudoku);
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +28,7 @@ $view = new SudokuView($sudoku);
     ?>
 </div>
 
-
+<p><a href="post/game-post.php?save">Save</a></p>
 
 </body>
 </html>

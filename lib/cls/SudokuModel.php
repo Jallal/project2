@@ -5,39 +5,52 @@ class SudokuModel{
     private $answer;
     private $numNotes = 0;
     private $cells = array();
-    private $username = ' ';
+    private $user;
+    private $sudoku;
 
-    public function __construct($gameNum=-1, $username="") {
-        $this->username = $username;
+    public function __construct($gameNum=-1,$sudoku,$user) {
         $sudokuGame = new SudokuGame();
-        $games = $sudokuGame->getGames();
-        $answers = $sudokuGame->getAnswers();
 
-        if ($gameNum == -1) {
+        if($gameNum == 0000){
+                $load=  new LoadSudokuGame($sudoku);
+            //change to the user id
+                $load->LoadGame('elhazzat');
+                $this->game =  $load->getSavedGame();
+                $this->answer = $load->getSavedAnswer();
+            $this->constructCells($this->game,$this->answer);
+        }
+        elseif ($gameNum == -1) {
+            $games = $sudokuGame->getGames();
+            $answers = $sudokuGame->getAnswers();
             $selection = rand(0,9);
             $this->game = $games[$selection];
             $this->answer = $answers[$selection];
 
-            $this->constructCells();
-        } elseif($gameNum == 11) {
+            $this->constructCells($this->game,$this->answer);
+        }
+        elseif($gameNum == 11) {
+
             $this->game = $sudokuGame->getCheatGame();
             $this->answer = $sudokuGame->getCheatAnswer();
 
-            $this->constructCells();
-        } else {
+            $this->constructCells($this->game,$this->answer);
+        }
+        else {
+            $games = $sudokuGame->getGames();
+            $answers = $sudokuGame->getAnswers();
             $this->game = $games[$gameNum];
             $this->answer = $answers[$gameNum];
 
-            $this->constructCells();
+           $this->constructCells($this->game,$this->answer);
         }
     }
 
-    private function constructCells()
+    public function constructCells($game,$answer)
     {
         for ($row = 0; $row < 9; $row++) {
             $oneRow = array();
             for ($column = 0; $column < 9; $column++) {
-                $oneRow[] = new SudokuCell($this->answer[$row][$column], $row, $column, $this->game[$row][$column]);
+                $oneRow[] = new SudokuCell($answer[$row][$column], $row, $column, $game[$row][$column]);
             }
             $this->cells[] = $oneRow;
         }
@@ -96,13 +109,9 @@ class SudokuModel{
     }
 
 
-    public function getusername(){
+    public function getuser(){
 
-        return $this->username;
-    }
-    public function Setusername($name){
-        $this->username = $name;
-
+        return $this->user;
     }
 
     public function getGame(){
@@ -113,6 +122,17 @@ class SudokuModel{
         return $this->answer;
 
     }
+    public function getSuduko(){
+        return $this->sudoku;
+    }
+
+
+    public function setUser($User){
+        $this->user=$User;
+
+    }
+
+
 
 
 

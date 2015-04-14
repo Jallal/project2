@@ -12,8 +12,8 @@ class SudokuView {
 
 
 
-    public function __construct(SudokuModel  $sudoku) {
-       $this->sudoku = $sudoku;
+    public function __construct($GameSudoku) {
+       $this->sudoku = $GameSudoku;
 
     }
 
@@ -142,8 +142,7 @@ HTML;
         return $this->sudoku->getNumNotes();
     }
     public function playerName(){
-        $name = $this->sudoku->getusername();
-        return  $name;
+        return  '';
     }
 
 

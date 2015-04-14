@@ -7,38 +7,62 @@
  */
 
 class LoadSudokuGame extends Table{
+    private    $answer= array();  // Empty initial array
+    private    $game= array();  // Empty initial array
 
 
-
-    public function __construct(Sudoku $sudoku,$model,$user) {
+    public function __construct(Sudoku $sudoku) {
         parent::__construct($sudoku, "savedgame");
-        $this->model = $model;
-        $this->user = $user;
 
     }
 
+public function getSavedGame(){
+    return $this->game;
 
-    /**
-     * Process the query
-     * @param $user the user to look for
-     * @param $password the user password
-     * @param $id the id in the hatting table
-     */
-    function processSave() {
+}
+public function getSavedAnswer(){
+return $this->answer;
+}
 
+
+    function LoadGame($userid) {
+        $sql =<<<SQL
+SELECT * FROM $this->tableName
+WHERE userid =?
+
+SQL;
+
+        $pdo = $this->pdo();
+        $statement = $pdo->prepare($sql);
+        $statement->execute(array($userid));
+
+
+        foreach($statement as $row) {
+            $ro = (int)($row['ro']);
+            $col = (int)($row['col']);
+            $this->answer[$ro][$col]=(int)($row['answer']);
+            $this->game[$ro][$col]=(int)($row['val']);
+
+        }
 
     }
+    function  GameExist($userid) {
+        $sql =<<<SQL
+SELECT * FROM $this->tableName
 
-    /**
-     * Ask the database for the user ID. If the user exists, the password
-     * must match.
-     * @param $pdo PHP Data Object
-     * @param $user The user name
-     * @param $password Password
-     */
-    function getUser() {
+WHERE userid=?
 
+SQL;
 
+        $pdo = $this->pdo();
+        $statement = $pdo->prepare($sql);
+        $statement->execute(array($userid));
+        if($statement->rowCount()===0){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
 

@@ -14,7 +14,7 @@ return function(Sudoku $sudoku) {
     // Set the time zone
     date_default_timezone_set('America/Detroit');
     $sudoku->setEmail('elhazzat@cse.msu.edu');
-    $sudoku->setRoot('/~elhazzat/step6');
+    $sudoku->setRoot('/~elhazzat/project2');
     $sudoku->dbConfigure('mysql:host=mysql-user.cse.msu.edu;dbname=elhazzat',
         'elhazzat',       // Database user
         'superstudent',     // Database password

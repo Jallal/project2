@@ -14,11 +14,17 @@ define("SUDOKU_SESSION", 'sudoku');
 
 
 
-
-if(!isset($_SESSION[SUDOKU_SESSION])){
-    $_SESSION['username'] = "";
-    $_SESSION[SUDOKU_SESSION] = new SudokuModel(-1, $_SESSION['username']);   //
-
+$sudoku = new Sudoku();
+$user = new User();
+$localize = require 'localize.inc.php';
+if(is_callable($localize)) {
+    $localize($sudoku);
 }
 
-$sudoku = $_SESSION[SUDOKU_SESSION];
+if(!isset($_SESSION[SUDOKU_SESSION])){
+    $model = new SudokuModel(-1,$sudoku,$user);
+    $_SESSION[SUDOKU_SESSION]= $model;
+}
+
+
+$GameSudoku = $_SESSION[SUDOKU_SESSION];
