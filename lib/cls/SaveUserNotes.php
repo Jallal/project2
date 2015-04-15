@@ -17,33 +17,28 @@ class SaveUserNotes extends Table {
 
 
     }
-
-
     function processNotes($userid){
-        $this->userID  = $userid;
         if($this->NotesExist($userid)){
-            for ($row = 0; $row < 9; $row++) {
-                for ($column = 0; $column < 9; $column++) {
-                    $note = $this->model->getNotesForCell($row, $column);
-                    $this->ReplaceNotes($note,$this->userID,$row,$column);
 
-                }
-            }
-        }else{
-            for ($row = 0; $row < 9; $row++) {
-                for ($column = 0; $column < 9; $column++) {
-                    $note = $this->model->getNotesForCell($row, $column);
-                    $this->SaveNotes($note,$this->userID,$row,$column);
-                }
-            }
-
-
+            $this->ClearNotes();
         }
 
+            for ($row = 0; $row < 9; $row++) {
+                for ($column = 0; $column < 9; $column++) {
+                    $note = $this->model->getNotesForCell($row, $column);
+                    foreach($note as $value) {
+                        $newnote = (int)$value;
+                        $this->SaveNotes($newnote,$userid,$row,$column);
+                    }
 
-
+                }
+            }
 
     }
+
+
+
+
 
     /**
      * Ask the database for the user ID. If the user exists, the password
@@ -71,18 +66,14 @@ SQL;
 
     }
 
-    function ReplaceNotes($note,$userid,$row,$column) {
+    function ClearNotes() {
         $sql =<<<SQL
-UPDATE $this->tableName
-SET note =?,
-userid=?
-WHERE ro = ? AND col =?
-
+TRUNCATE  $this->tableName ;
 SQL;
 
         $pdo = $this->pdo();
         $statement = $pdo->prepare($sql);
-        if($statement->execute(array($note,$userid,$row,$column))){
+        if($statement->execute(array())){
             return true;
         }
         else{

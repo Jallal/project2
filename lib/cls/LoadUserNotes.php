@@ -11,12 +11,6 @@ class LoadUserNotes  extends Table
 
     }
 
-    public function getSavedNotes()
-    {
-       return $this->notes;
-
-    }
-
 
 
 
@@ -36,11 +30,11 @@ SQL;
         foreach ($statement as $row) {
             $ro = (int)($row['ro']);
             $col = (int)($row['col']);
-            $this->notes[$ro][$col] = (int)($row['note']);
+            $this->notes[$ro][$col][]= (int)($row['note']);
         }
+        return $this->notes;
 
     }
-
     function  GameExist($userid)
     {
         $sql = <<<SQL

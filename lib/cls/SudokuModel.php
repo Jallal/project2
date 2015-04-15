@@ -6,18 +6,22 @@ class SudokuModel{
     private $numNotes = 0;
     private $cells = array();
     private $user;
-    private $sudoku;
 
     public function __construct($gameNum=-1,$sudoku,$user) {
         $sudokuGame = new SudokuGame();
 
         if($gameNum == 0000){
-                $load=  new LoadSudokuGame($sudoku);
+                $loadgame=  new LoadSudokuGame($sudoku);
+               $loadnotes=  new LoadUserNotes($sudoku);
             //change to the user id
-                $load->LoadGame('elhazzat');
-                $this->game =  $load->getSavedGame();
-                $this->answer = $load->getSavedAnswer();
+               $loadgame->LoadGame('elhazzat');
+                $notes = $loadnotes->LoadNotes('elhazzat');
+                $this->game =  $loadgame->getSavedGame();
+                $this->answer = $loadgame->getSavedAnswer();
             $this->constructCells($this->game,$this->answer);
+            $this->addNotesFromdBase($notes);
+            $this->addUserGuessFromdBase($loadgame->getUserGuess());
+
         }
         elseif ($gameNum == -1) {
             $games = $sudokuGame->getGames();
@@ -109,6 +113,7 @@ class SudokuModel{
     }
 
 
+
     public function getuser(){
 
         return $this->user;
@@ -122,14 +127,39 @@ class SudokuModel{
         return $this->answer;
 
     }
-    public function getSuduko(){
-        return $this->sudoku;
-    }
 
 
     public function setUser($User){
         $this->user=$User;
 
+    }
+    public function addNotesFromdBase($notes){
+        foreach ($notes as $key=>$value) {
+            foreach ($value as $key2=>$value2){
+
+                foreach($notes[$key][$key2] as $note) {
+
+                    $this->addNoteForCell($note,$key,$key2);
+                }
+            }
+        }
+    }
+
+    public function addUserGuessFromdBase($guess){
+        foreach ($guess as $key=>$value) {
+
+            foreach ($value as $key2=>$value2){
+
+                if($guess[$key][$key2]!==0){
+
+                    $this->setUserGuessForCell($guess[$key][$key2], $key, $key2);
+                }
+
+
+
+            }
+
+        }
     }
 
 

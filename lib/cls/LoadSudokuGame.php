@@ -9,6 +9,7 @@
 class LoadSudokuGame extends Table{
     private    $answer= array();  // Empty initial array
     private    $game= array();  // Empty initial array
+    private    $guess = array();
 
 
     public function __construct(Sudoku $sudoku) {
@@ -23,6 +24,9 @@ public function getSavedGame(){
 public function getSavedAnswer(){
 return $this->answer;
 }
+    public function getUserGuess(){
+        return $this->guess;
+    }
 
 
     function LoadGame($userid) {
@@ -42,8 +46,10 @@ SQL;
             $col = (int)($row['col']);
             $this->answer[$ro][$col]=(int)($row['answer']);
             $this->game[$ro][$col]=(int)($row['val']);
+            $this->guess[$ro][$col]=(int)($row['guess']);
 
         }
+
 
     }
     function  GameExist($userid) {

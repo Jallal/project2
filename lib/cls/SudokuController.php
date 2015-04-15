@@ -22,11 +22,10 @@ class SudokuController {
 
         if(isset($request['save'])){
             $savegame =  new SaveSudokuGame($GameSudoku,$sudoku);
-            //$savenotes =  new SaveUserNotes($GameSudoku,$sudoku);
+            $savenotes=  new SaveUserNotes($GameSudoku,$sudoku);
+            $savenotes->processNotes('elhazzat');
             //needs a userid
             $savegame->processSave('elhazzat');
-            //needs a userid
-            //$savenotes->processNotes('elhazzat');
         }
         elseif(isset($request['load'])){
 
