@@ -19,14 +19,15 @@ class SudokuController {
     public function __construct($GameSudoku,$sudoku,$request) {
 
             $this->sudoku = $GameSudoku;
+            $userid = 'elhazzat';
 
         if(isset($request['save'])){
             $savegame =  new SaveSudokuGame($GameSudoku,$sudoku);
             $savenotes=  new SaveUserNotes($GameSudoku,$sudoku);
             //needs the actual  userid
-            $savenotes->processNotes('elhazzat');
+            $savenotes->processNotes($userid);
             //needs the actual  userid
-            $savegame->processSave('elhazzat');
+            $savegame->processSave($userid);
         }
         elseif(isset($request['load'])){
 
