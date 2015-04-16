@@ -19,7 +19,7 @@ $view = new SudokuView($GameSudoku);
 </head>
 
 <body>
-<?php echo present_header("Sudoku Game "); ?>
+<?php echo present_header("Sudoku Game ", $user); ?>
 
 
 <div class="cells">
@@ -28,7 +28,7 @@ $view = new SudokuView($GameSudoku);
     ?>
 </div>
 
-<p><a href="post/game-post.php?save">Save</a></p>
+<p><a href="post/game-post.php?c">Cheat Mode</a></p>
 
 </body>
 </html>

@@ -1,15 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: elhazzat
- * Date: 2/12/15
- * Time: 5:03 PM
- */
-require 'format.inc.php';
-require 'lib/game.inc.php';
-$view = new SudokuView($GameSudoku);
-?>
-
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -24,15 +12,20 @@ $view = new SudokuView($GameSudoku);
 
 <div class="guess-box">
 
-<br>Enter the player name to start a new game:<br>
-<form   name=username" action="post/game-post.php?username" method="post">
-    <input type="text" name="name" placeholder="John" value="">
-    <br>
-    <input type="submit"  name ="username" value="Start">
-</form>
+    <br>Login or Play as a Guest:<br>
+    <form method="post" action="post/login-post.php">
+        <p>
+            <label for="user">User name or Email:</label><br>
+            <input type="text" id="user" name="user"></p>
+        <p><label for="password">Password:</label><br>
+            <input type="password" id="password" name="password">
+        </p>
+        <p><input type="submit"></p>
+    </form>
 
-    <a href="post/game-post.php?c">Cheat Mode</a>
-    <a href="post/game-post.php?load">Load Game</a>
+    <p><a href="newuser.php">New User</a></p>
+    <p><a href="lostpw.php">Lost Password</a></p>
+    <p><a href="post/login-post.php?guest">Play as a Guest</a></p>
 </div>
 
 </body>

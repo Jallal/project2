@@ -8,23 +8,32 @@
 
 
 require __DIR__ . "/autoload.inc.php";
-// Start the PHP session system
-session_start();
-define("SUDOKU_SESSION", 'sudoku');
-
-
 
 $sudoku = new Sudoku();
-$user = new User();
 $localize = require 'localize.inc.php';
 if(is_callable($localize)) {
     $localize($sudoku);
 }
+
+// Start the PHP session system
+session_start();
+define("SUDOKU_SESSION", 'sudoku');
 
 if(!isset($_SESSION[SUDOKU_SESSION])){
     $model = new SudokuModel(-1,$sudoku,$user);
     $_SESSION[SUDOKU_SESSION]= $model;
 }
 
+$user = null;
+if(isset($_SESSION['user'])) {
+    $user = $_SESSION['user'];
+}
+
+// redirect if user is not logged in
+if(!isset($login) && $user === null) {
+    $root = $sudoku->getRoot();
+    header("location: $root/index.php");
+    exit;
+}
 
 $GameSudoku = $_SESSION[SUDOKU_SESSION];

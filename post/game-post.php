@@ -12,10 +12,8 @@ $controller = new SudokuController($GameSudoku,$sudoku,$_REQUEST);
 
 if($controller->isReset()) {
     unset($_SESSION[SUDOKU_SESSION]);
-    if ($controller->setUsername()) {
-        $_SESSION['username'] = $_REQUEST['name'];
-    }
 }
+
 elseif($controller->IsLoadfromdbase()){
     unset($_SESSION[SUDOKU_SESSION]);
     $_SESSION[SUDOKU_SESSION] = new SudokuModel(0000,$sudoku,$user);
