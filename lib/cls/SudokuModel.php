@@ -11,16 +11,23 @@ class SudokuModel{
         $sudokuGame = new SudokuGame();
 
         if($gameNum == 0000){
+               $userid = 'elhazzat';
                 $loadgame=  new LoadSudokuGame($sudoku);
                $loadnotes=  new LoadUserNotes($sudoku);
-            //change to the user id
-               $loadgame->LoadGame('elhazzat');
-                $notes = $loadnotes->LoadNotes('elhazzat');
-                $this->game =  $loadgame->getSavedGame();
+            /*check if there is a game saved for the user*/
+            if($loadgame->GameExist($userid)) {
+                //change to the user id
+                $loadgame->LoadGame($userid);
+                $notes = $loadnotes->LoadNotes($userid);
+                $this->game = $loadgame->getSavedGame();
                 $this->answer = $loadgame->getSavedAnswer();
-            $this->constructCells($this->game,$this->answer);
-            $this->addNotesFromdBase($notes);
-            $this->addUserGuessFromdBase($loadgame->getUserGuess());
+                $this->constructCells($this->game, $this->answer);
+                $this->addNotesFromdBase($notes);
+                $this->addUserGuessFromdBase($loadgame->getUserGuess());
+            }else{
+
+                /*there is no saved game for this user to load*/
+            }
 
         }
         elseif ($gameNum == -1) {

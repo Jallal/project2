@@ -23,8 +23,9 @@ class SudokuController {
         if(isset($request['save'])){
             $savegame =  new SaveSudokuGame($GameSudoku,$sudoku);
             $savenotes=  new SaveUserNotes($GameSudoku,$sudoku);
+            //needs the actual  userid
             $savenotes->processNotes('elhazzat');
-            //needs a userid
+            //needs the actual  userid
             $savegame->processSave('elhazzat');
         }
         elseif(isset($request['load'])){

@@ -35,11 +35,6 @@ class SaveUserNotes extends Table {
             }
 
     }
-
-
-
-
-
     /**
      * Ask the database for the user ID. If the user exists, the password
      * must match.
