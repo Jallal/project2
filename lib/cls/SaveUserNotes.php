@@ -20,7 +20,7 @@ class SaveUserNotes extends Table {
     function processNotes($userid){
         if($this->NotesExist($userid)){
 
-            $this->ClearNotes();
+            $this->ClearNotes($userid);
         }
 
             for ($row = 0; $row < 9; $row++) {
@@ -61,14 +61,15 @@ SQL;
 
     }
 
-    function ClearNotes() {
+    function ClearNotes($userid) {
         $sql =<<<SQL
-TRUNCATE  $this->tableName ;
+DELETE FROM $this->tableName where where userid=?
+
 SQL;
 
         $pdo = $this->pdo();
         $statement = $pdo->prepare($sql);
-        if($statement->execute(array())){
+        if($statement->execute(array($userid))){
             return true;
         }
         else{
