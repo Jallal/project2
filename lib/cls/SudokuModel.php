@@ -9,9 +9,10 @@ class SudokuModel{
 
     public function __construct($gameNum=-1,$sudoku, User $user=null) {
         $sudokuGame = new SudokuGame();
+        $this->user = $user;
 
         if($gameNum == 0000 && $user !== null && $user->getUserId() !== "guest"){
-               $userid = 'elhazzat';
+               $userid = $user->getUserid();
                 $loadgame=  new LoadSudokuGame($sudoku);
                $loadnotes=  new LoadUserNotes($sudoku);
             /*check if there is a game saved for the user*/
@@ -126,13 +127,6 @@ class SudokuModel{
         return $this->numNotes;
     }
 
-
-
-    public function getuser(){
-
-        return $this->user;
-    }
-
     public function getGame(){
         return  $this->game;
 
@@ -142,11 +136,10 @@ class SudokuModel{
 
     }
 
-
-    public function setUser($User){
-        $this->user=$User;
-
+    public function getUser() {
+        return $this->user;
     }
+
     public function addNotesFromdBase($notes){
         foreach ($notes as $key=>$value) {
             foreach ($value as $key2=>$value2){
