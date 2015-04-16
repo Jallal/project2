@@ -8,22 +8,24 @@
 require '../lib/game.inc.php';
 
 
-$controller = new SudokuController($GameSudoku,$sudoku,$_REQUEST);
+$controller = new SudokuController($GameSudoku,$sudoku,$user,$_REQUEST);
 
 if($controller->isReset()) {
     unset($_SESSION[SUDOKU_SESSION]);
 }
 
-elseif($controller->IsLoadfromdbase()){
-    unset($_SESSION[SUDOKU_SESSION]);
-    $_SESSION[SUDOKU_SESSION] = new SudokuModel(0000,$sudoku,$user);
-
-}
-
-elseif($controller->ischeatMode()){
+if($controller->ischeatMode()){
     unset($_SESSION[SUDOKU_SESSION]);
     $_SESSION[SUDOKU_SESSION] = new SudokuModel(11,$sudoku,$user);
+} elseif($controller->IsLoadfromdbase()){
+    unset($_SESSION[SUDOKU_SESSION]);
+    $_SESSION[SUDOKU_SESSION] = new SudokuModel(0,$sudoku,$user);
 }
+else{
+    unset($_SESSION[SUDOKU_SESSION]);
+    $_SESSION[SUDOKU_SESSION] = new SudokuModel(0,$sudoku,$user);
+}
+
 
 header("location: ../".$controller->getPage());
 

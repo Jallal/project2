@@ -12,18 +12,16 @@ class SudokuController {
     private $page ='game.php';     // The next page we will go to
     private $reset = false;
     private $cheatmode = false;
-    private $loadDbase = false;
+    private $loadDbase = true;
     private $setUsername = false;
 
 
-    public function __construct(SudokuModel $GameSudoku,$sudoku,$request) {
+    public function __construct(SudokuModel $GameSudoku,$sudoku,$user,$request) {
 
             $this->sudoku = $GameSudoku;
-            $user = $GameSudoku->getUser();
-            var_dump($user);
-            $userid = $user->getUserid();
 
         if(isset($request['save'])){
+            $userid = $user->getUserid();
             $savegame =  new SaveSudokuGame($GameSudoku,$sudoku);
             $savenotes=  new SaveUserNotes($GameSudoku,$sudoku);
             //needs the actual  userid

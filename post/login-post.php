@@ -20,7 +20,7 @@ if(isset($_POST['user']) && isset($_POST['password'])) {
     $user = $users->login($_POST['user'], $_POST['password']);
     if($user !== null) {
         $_SESSION['user'] = $user;
-        header("location: ../game.php");
+        header("location: ../post/game-post.php");
         exit;
     }
 }
