@@ -7,10 +7,10 @@ class SudokuModel{
     private $cells = array();
     private $user;
 
-    public function __construct($gameNum=-1,$sudoku,$user) {
+    public function __construct($gameNum=-1,$sudoku, User $user=null) {
         $sudokuGame = new SudokuGame();
 
-        if($gameNum == 0000){
+        if($gameNum == 0000 && $user !== null && $user->getUserId() !== "guest"){
                $userid = 'elhazzat';
                 $loadgame=  new LoadSudokuGame($sudoku);
                $loadnotes=  new LoadUserNotes($sudoku);

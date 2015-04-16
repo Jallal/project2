@@ -79,7 +79,7 @@ td {
 
 .guess-box {
     padding-top: 30px;
-    height: 205px;
+    /*height: 205px;*/
     width: 300px;
     margin: 0 auto;
     background-color: lightblue;

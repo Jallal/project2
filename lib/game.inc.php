@@ -19,14 +19,14 @@ if(is_callable($localize)) {
 session_start();
 define("SUDOKU_SESSION", 'sudoku');
 
-if(!isset($_SESSION[SUDOKU_SESSION])){
-    $model = new SudokuModel(-1,$sudoku,$user);
-    $_SESSION[SUDOKU_SESSION]= $model;
-}
-
 $user = null;
 if(isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
+}
+
+if(!isset($_SESSION[SUDOKU_SESSION])){
+    $model = new SudokuModel(-1,$sudoku,$user);
+    $_SESSION[SUDOKU_SESSION]= $model;
 }
 
 // redirect if user is not logged in

@@ -23,9 +23,11 @@
         <p><input type="submit"></p>
     </form>
 
-    <p><a href="newuser.php">New User</a></p>
-    <p><a href="lostpw.php">Lost Password</a></p>
-    <p><a href="post/login-post.php?guest">Play as a Guest</a></p>
+    <p>
+        <a href="post/login-post.php?guest">Play as a Guest</a><br>
+        <a href="newuser.php">New User</a><br>
+        <a href="lostpw.php">Forgot Password?</a>
+    </p>
 </div>
 
 </body>
