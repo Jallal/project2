@@ -5,6 +5,7 @@
  * Date: 2/23/15
  * Time: 6:08 PM
  */
+require 'lib/game.inc.php';
 ?>
 <html>
 <head lang="en">

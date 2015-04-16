@@ -19,7 +19,9 @@ class SudokuController {
     public function __construct(SudokuModel $GameSudoku,$sudoku,$request) {
 
             $this->sudoku = $GameSudoku;
-            $userid = $GameSudoku->getUser()->getUserId();
+            $user = $GameSudoku->getUser();
+            var_dump($user);
+            $userid = $user->getUserid();
 
         if(isset($request['save'])){
             $savegame =  new SaveSudokuGame($GameSudoku,$sudoku);

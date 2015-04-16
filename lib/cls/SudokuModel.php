@@ -7,7 +7,7 @@ class SudokuModel{
     private $cells = array();
     private $user;
 
-    public function __construct($gameNum=-1,$sudoku, User $user=null) {
+    public function __construct($gameNum=-1,$sudoku, User $user) {
         $sudokuGame = new SudokuGame();
         $this->user = $user;
 
