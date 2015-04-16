@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="25e5bdf0-ba12-474e-bce0-b5d375563896" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/lib/post/game-post.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/cls/SaveUserNotes.php" afterPath="$PROJECT_DIR$/lib/cls/SaveUserNotes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/cls/SaveSudokuGame.php" afterPath="$PROJECT_DIR$/lib/cls/SaveSudokuGame.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/cls/SudokuController.php" afterPath="$PROJECT_DIR$/lib/cls/SudokuController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/cls/SudokuModel.php" afterPath="$PROJECT_DIR$/lib/cls/SudokuModel.php" />
     </list>
     <ignored path="project2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,12 +33,13 @@
       <file leaf-file-name="SaveSudokuGame.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/cls/SaveSudokuGame.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="312" max-vertical-offset="1920">
-              <caret line="42" column="173" selection-start-line="42" selection-start-column="173" selection-end-line="42" selection-end-column="173" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="177" max-vertical-offset="1530">
+              <caret line="33" column="178" selection-start-line="33" selection-start-column="178" selection-end-line="33" selection-end-column="178" />
               <folding>
-                <marker date="1429138534000" expanded="true" signature="1715:1795" placeholder="INSERT INTO ..." />
-                <marker date="1429138534000" expanded="true" signature="2135:2212" placeholder="UPDATE :_thi..." />
-                <marker date="1429138534000" expanded="true" signature="2515:2561" placeholder="SELECT * FRO.._this_tableName&#10;&#10;WHERE..." />
+                <marker date="1429147761000" expanded="true" signature="620:940" placeholder="..." />
+                <marker date="1429147761000" expanded="true" signature="1248:1328" placeholder="INSERT INTO ..." />
+                <marker date="1429147761000" expanded="true" signature="1637:1638" placeholder="..." />
+                <marker date="1429147761000" expanded="true" signature="1963:2009" placeholder="SELECT * FRO.._this_tableName&#10;&#10;WHERE..." />
               </folding>
             </state>
           </provider>
@@ -52,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SaveUserNotes.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SaveUserNotes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/cls/SaveUserNotes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3877551" vertical-offset="691" max-vertical-offset="1545">
-              <caret line="65" column="49" selection-start-line="65" selection-start-column="49" selection-end-line="65" selection-end-column="49" />
+            <state vertical-scroll-proportion="-12.458333" vertical-offset="691" max-vertical-offset="1545">
+              <caret line="71" column="48" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
               <folding>
                 <marker date="1429145295000" expanded="true" signature="1144:1208" placeholder="INSERT INTO ..." />
                 <marker date="1429145295000" expanded="true" signature="1504:1553" placeholder="DELETE FROM ..." />
@@ -115,18 +118,18 @@
       <file leaf-file-name="SudokuController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/cls/SudokuController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="28.583334" vertical-offset="1061" max-vertical-offset="1725">
-              <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+            <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1740">
+              <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SudokuModel.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SudokuModel.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/cls/SudokuModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.125" vertical-offset="90" max-vertical-offset="2715">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.1394052" vertical-offset="120" max-vertical-offset="2820">
+              <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -168,9 +171,9 @@
         <option value="$PROJECT_DIR$/lib/cls/LoadUserNotes.php" />
         <option value="$PROJECT_DIR$/lib/cls/SaveSudokuGame.php" />
         <option value="$PROJECT_DIR$/lib/cls/LoadSudokuGame.php" />
+        <option value="$PROJECT_DIR$/lib/cls/SaveUserNotes.php" />
         <option value="$PROJECT_DIR$/lib/cls/SudokuController.php" />
         <option value="$PROJECT_DIR$/lib/cls/SudokuModel.php" />
-        <option value="$PROJECT_DIR$/lib/cls/SaveUserNotes.php" />
       </list>
     </option>
   </component>
@@ -179,9 +182,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+    <option name="x" value="148" />
+    <option name="y" value="89" />
     <option name="width" value="1440" />
-    <option name="height" value="832" />
+    <option name="height" value="831" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -334,10 +338,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="832" extended-state="6" />
-    <editor active="true" />
+    <frame x="148" y="89" width="1440" height="831" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.174581" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17482518" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -697,12 +701,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/cls/SaveSudokuGame.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="312" max-vertical-offset="1920">
-          <caret line="42" column="173" selection-start-line="42" selection-start-column="173" selection-end-line="42" selection-end-column="173" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="177" max-vertical-offset="1530">
+          <caret line="33" column="178" selection-start-line="33" selection-start-column="178" selection-end-line="33" selection-end-column="178" />
           <folding>
-            <marker date="1429138534000" expanded="true" signature="1715:1795" placeholder="INSERT INTO ..." />
-            <marker date="1429138534000" expanded="true" signature="2135:2212" placeholder="UPDATE :_thi..." />
-            <marker date="1429138534000" expanded="true" signature="2515:2561" placeholder="SELECT * FRO.._this_tableName&#10;&#10;WHERE..." />
+            <marker date="1429147761000" expanded="true" signature="620:940" placeholder="..." />
+            <marker date="1429147761000" expanded="true" signature="1248:1328" placeholder="INSERT INTO ..." />
+            <marker date="1429147761000" expanded="true" signature="1637:1638" placeholder="..." />
+            <marker date="1429147761000" expanded="true" signature="1963:2009" placeholder="SELECT * FRO.._this_tableName&#10;&#10;WHERE..." />
           </folding>
         </state>
       </provider>
@@ -711,22 +716,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="570">
           <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/cls/SudokuController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="28.583334" vertical-offset="1061" max-vertical-offset="1725">
-          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/cls/SudokuModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.125" vertical-offset="90" max-vertical-offset="2715">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -755,13 +744,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/cls/SaveUserNotes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3877551" vertical-offset="691" max-vertical-offset="1545">
-          <caret line="65" column="49" selection-start-line="65" selection-start-column="49" selection-end-line="65" selection-end-column="49" />
+        <state vertical-scroll-proportion="-12.458333" vertical-offset="691" max-vertical-offset="1545">
+          <caret line="71" column="48" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
           <folding>
             <marker date="1429145295000" expanded="true" signature="1144:1208" placeholder="INSERT INTO ..." />
             <marker date="1429145295000" expanded="true" signature="1504:1553" placeholder="DELETE FROM ..." />
             <marker date="1429145295000" expanded="true" signature="1830:1876" placeholder="SELECT * FRO.._this_tableName&#10;&#10;WHERE..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/cls/SudokuController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1740">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/cls/SudokuModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1394052" vertical-offset="120" max-vertical-offset="2820">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>

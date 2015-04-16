@@ -21,39 +21,19 @@ class SaveSudokuGame extends Table {
     }
 
 
-
-
-
-
-
-
-
-
     function processSave($userid){
-        //$this->game =  $this->model->getGame();
-        $this->answer = $this->model->getAnswer();
-        //$this->default =  $this->model->getDefaultValue($row,$column);
-        $this->userID  = $userid;
-        $this->numNotes= $this->model->getNumNotes();
-
         if($this->GameExist($userid)){
-            for ($row = 0; $row < 9; $row++) {
-                for ($column = 0; $column < 9; $column++) {
 
-                    $this->ReplaceGame($this->model->getDefaultValue($row,$column),$this->answer[$row][$column],$row,$column,$this->model->getUserGuessForCell($row,$column));
-
-                }
-            }
-        }else{
-            for ($row = 0; $row < 9; $row++) {
-                for ($column = 0; $column < 9; $column++) {
-                    $this->SaveGame($this->userID,$row,$column,$this->model->getDefaultValue($row,$column),$this->answer[$row][$column],$this->model->getUserGuessForCell($row,$column));
-                }
-            }
-
-
+            $this->ClearGame($userid);
         }
+        $this->answer = $this->model->getAnswer();
+        $this->numNotes= $this->model->getNumNotes();
+            for ($row = 0; $row < 9; $row++) {
+                for ($column = 0; $column < 9; $column++) {
 
+                    $this->SaveGame($userid,$row,$column,$this->model->getDefaultValue($row,$column),$this->answer[$row][$column],$this->model->getUserGuessForCell($row,$column));
+                }
+            }
     }
 
     /**
@@ -64,8 +44,6 @@ class SaveSudokuGame extends Table {
      * @param $password Password
      */
     function SaveGame($userid,$row,$column,$value,$answer,$guess) {
-
-
         $sql =<<<SQL
 INSERT INTO $this->tableName(userid,ro,col,val,answer,guess) values(?,?,?,?,?,?)
 
@@ -82,19 +60,15 @@ SQL;
 
     }
 
-    function ReplaceGame($value,$answer,$row,$column,$guess) {
+    function ClearGame($userid){
         $sql =<<<SQL
-UPDATE $this->tableName
-SET val =?,
-answer=?,
-guess=?
-WHERE ro = ? AND col =?
+DELETE FROM $this->tableName where where userid=?
 
 SQL;
 
         $pdo = $this->pdo();
         $statement = $pdo->prepare($sql);
-        if($statement->execute(array($value,$answer,$guess,$row,$column))){
+        if($statement->execute(array($userid))){
             return true;
         }
         else{

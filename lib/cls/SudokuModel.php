@@ -26,7 +26,14 @@ class SudokuModel{
                 $this->addUserGuessFromdBase($loadgame->getUserGuess());
             }else{
 
-                /*there is no saved game for this user to load*/
+                /*there is no saved game for this user to load
+                we load a random one*/
+                $games = $sudokuGame->getGames();
+                $answers = $sudokuGame->getAnswers();
+                $this->game = $games[$gameNum];
+                $this->answer = $answers[$gameNum];
+
+                $this->constructCells($this->game,$this->answer);
             }
 
         }
