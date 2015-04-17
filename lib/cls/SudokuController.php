@@ -12,7 +12,7 @@ class SudokuController {
     private $page ='game.php';     // The next page we will go to
     private $reset = false;
     private $cheatmode = false;
-    private $loadDbase = true;
+    private $loadDbase = false;
     private $setUsername = false;
 
 
