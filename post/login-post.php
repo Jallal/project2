@@ -10,6 +10,7 @@ if(isset($_GET['guest'])) {
         'joined' => '');
     $user = new User($row);
     $_SESSION['user'] = $user;
+    $_SESSION[SUDOKU_SESSION] = new SudokuModel(-1,$sudoku,$user);
     header("location: ../game.php");
     exit;
 }
@@ -20,7 +21,8 @@ if(isset($_POST['user']) && isset($_POST['password'])) {
     $user = $users->login($_POST['user'], $_POST['password']);
     if($user !== null) {
         $_SESSION['user'] = $user;
-        header("location: ../post/game-post.php");
+        $_SESSION[SUDOKU_SESSION] = new SudokuModel(-3,$sudoku,$user);
+        header("location: ../game.php");
         exit;
     }
 }

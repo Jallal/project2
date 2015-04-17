@@ -11,7 +11,7 @@
             $sudokuGame = new SudokuGame();
 
 
-            if($gameNum == 0 && $user !== null && $user->getUserId() !== "guest"){
+            if($gameNum == -3 && $user !== null && $user->getUserId() !== "guest"){
                 $userid = $user->getUserid();
 
                 $loadgame=  new LoadSudokuGame($sudoku);

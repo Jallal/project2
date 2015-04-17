@@ -19,12 +19,9 @@ if($controller->ischeatMode()){
     $_SESSION[SUDOKU_SESSION] = new SudokuModel(11,$sudoku,$user);
 } elseif($controller->IsLoadfromdbase()){
     unset($_SESSION[SUDOKU_SESSION]);
-    $_SESSION[SUDOKU_SESSION] = new SudokuModel(0,$sudoku,$user);
+    $_SESSION[SUDOKU_SESSION] = new SudokuModel(-3,$sudoku,$user);
 }
-else{
-    unset($_SESSION[SUDOKU_SESSION]);
-    $_SESSION[SUDOKU_SESSION] = new SudokuModel(0,$sudoku,$user);
-}
+
 
 
 header("location: ../".$controller->getPage());

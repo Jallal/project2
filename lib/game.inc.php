@@ -26,7 +26,7 @@ if(isset($_SESSION['user'])) {
 
 
 if(!isset($_SESSION[SUDOKU_SESSION])){
-    $model = new SudokuModel(0000,$sudoku,$user);
+    $model = new SudokuModel(-1,$sudoku,$user);
     $_SESSION[SUDOKU_SESSION]= $model;
 }
 
