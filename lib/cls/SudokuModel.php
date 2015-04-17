@@ -31,8 +31,9 @@
                     we load a random one*/
                     $games = $sudokuGame->getGames();
                     $answers = $sudokuGame->getAnswers();
-                    $this->game = $games[$gameNum];
-                    $this->answer = $answers[$gameNum];
+                    $selection = rand(0,9);
+                    $this->game = $games[$selection];
+                    $this->answer = $answers[$selection];
                     $this->constructCells($this->game,$this->answer);
                 }
             }
