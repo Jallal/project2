@@ -47,8 +47,6 @@ class SudokuController {
                 $this->insert_into_cell($row, $column, $guess);
         }
         elseif(isset($request['note_button'])){
-
-
                 $row = $request['x'];
                 $column = $request['y'];
                 $note = $request['cell_note'];

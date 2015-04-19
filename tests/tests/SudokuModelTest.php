@@ -6,7 +6,16 @@
 class SudokuModelTest extends \PHPUnit_Framework_TestCase
 {
 	public function test_construct() {
-		$sudoku = new SudokuModel(1);
+		$row = array('id' => 12,
+			'userid' => 'dude',
+			'name' => 'The Dude',
+			'email' => 'dude@ranch.com',
+			'password' => '12345678',
+			'joined' => '2015-01-15 23:50:26',
+			'role' => '1');
+		$user = new User($row);
+		$sudo= new Sudoku();
+		$sudoku = new SudokuModel(1,$sudo,$user);
 		$this->assertInstanceOf("SudokuModel", $sudoku);
 
 		// Ensure we have 81 cells
@@ -18,29 +27,74 @@ class SudokuModelTest extends \PHPUnit_Framework_TestCase
 	}
 
 	public function test_getAnswerForCell() {
-		$sudoku = new SudokuModel(0);
+		$row = array('id' => 12,
+			'userid' => 'dude',
+			'name' => 'The Dude',
+			'email' => 'dude@ranch.com',
+			'password' => '12345678',
+			'joined' => '2015-01-15 23:50:26',
+			'role' => '1');
+		$user = new User($row);
+		$sudo= new Sudoku();
+		$sudoku = new SudokuModel(0,$sudo,$user);
 		$this->assertEquals(8, $sudoku->getAnswerForCell(0,0));
 	}
 
 	public function test_getDefaultValue() {
-		$sudoku = new SudokuModel(0);
+		$row = array('id' => 12,
+			'userid' => 'dude',
+			'name' => 'The Dude',
+			'email' => 'dude@ranch.com',
+			'password' => '12345678',
+			'joined' => '2015-01-15 23:50:26',
+			'role' => '1');
+		$user = new User($row);
+		$sudo= new Sudoku();
+		$sudoku = new SudokuModel(0,$sudo,$user);
 		$this->assertEquals(0, $sudoku->getDefaultValue(0,0));
 	}
 
 	public function test_getCell() {
-		$sudoku = new SudokuModel(0);
+		$row = array('id' => 12,
+			'userid' => 'dude',
+			'name' => 'The Dude',
+			'email' => 'dude@ranch.com',
+			'password' => '12345678',
+			'joined' => '2015-01-15 23:50:26',
+			'role' => '1');
+		$user = new User($row);
+		$sudo= new Sudoku();
+		$sudoku = new SudokuModel(0,$sudo,$user);
 		$this->assertInstanceOf("SudokuCell", $sudoku->getCell(0,0));
 	}
 
 	public function test_setUserGuessForCell() {
-		$sudoku = new SudokuModel(0);
+		$row = array('id' => 12,
+			'userid' => 'dude',
+			'name' => 'The Dude',
+			'email' => 'dude@ranch.com',
+			'password' => '12345678',
+			'joined' => '2015-01-15 23:50:26',
+			'role' => '1');
+		$user = new User($row);
+		$sudo= new Sudoku();
+		$sudoku = new SudokuModel(0,$sudo,$user);
 
 		$this->assertFalse($sudoku->setUserGuessForCell(3, 0, 0));
 		$this->assertEquals(3, $sudoku->getUserGuessForCell(0,0));
 	}
 
 	public function test_checkForWin() {
-		$sudoku = new SudokuModel(11);
+		$row = array('id' => 12,
+			'userid' => 'dude',
+			'name' => 'The Dude',
+			'email' => 'dude@ranch.com',
+			'password' => '12345678',
+			'joined' => '2015-01-15 23:50:26',
+			'role' => '1');
+		$user = new User($row);
+		$sudo= new Sudoku();
+		$sudoku = new SudokuModel(11,$sudo,$user);
 
 		$this->assertFalse($sudoku->setUserGuessForCell(2, 0, 0));
 		$this->assertFalse($sudoku->setUserGuessForCell(6, 0, 1));
@@ -105,14 +159,32 @@ class SudokuModelTest extends \PHPUnit_Framework_TestCase
 	}
 
 	public function test_isUserGuessCorrect() {
-		$sudoku = new SudokuModel(0);
+		$row = array('id' => 12,
+			'userid' => 'dude',
+			'name' => 'The Dude',
+			'email' => 'dude@ranch.com',
+			'password' => '12345678',
+			'joined' => '2015-01-15 23:50:26',
+			'role' => '1');
+		$user = new User($row);
+		$sudo= new Sudoku();
+		$sudoku = new SudokuModel(0,$sudo,$user);
 		$sudoku->setUserGuessForCell(3,0,0);
 
 		$this->assertFalse($sudoku->isUserGuessCorrect(0,0));
 	}
 
 	public function test_addNoteForCell() {
-		$sudoku = new SudokuModel(0);
+		$row = array('id' => 12,
+			'userid' => 'dude',
+			'name' => 'The Dude',
+			'email' => 'dude@ranch.com',
+			'password' => '12345678',
+			'joined' => '2015-01-15 23:50:26',
+			'role' => '1');
+		$user = new User($row);
+		$sudo= new Sudoku();
+		$sudoku = new SudokuModel(0,$sudo,$user);
 		$this->assertEquals(0, count($sudoku->getNotesForCell(0,0)));
 
 		$sudoku->addNoteForCell(7,0,0);
@@ -130,7 +202,16 @@ class SudokuModelTest extends \PHPUnit_Framework_TestCase
 	}
 
 	public function test_getNumNotes() {
-		$sudoku = new SudokuModel(0);
+		$row = array('id' => 12,
+			'userid' => 'dude',
+			'name' => 'The Dude',
+			'email' => 'dude@ranch.com',
+			'password' => '12345678',
+			'joined' => '2015-01-15 23:50:26',
+			'role' => '1');
+		$user = new User($row);
+		$sudo= new Sudoku();
+		$sudoku = new SudokuModel(0,$sudo,$user);
 		$this->assertEquals(0, $sudoku->getNumNotes());
 
 		$sudoku->addNoteForCell(3, 0, 0);

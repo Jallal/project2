@@ -21,7 +21,7 @@ class UsersTest extends \PHPUnit_Extensions_Database_TestCase
      */
     public function getConnection()
     {
-        return $this->createDefaultDBConnection(self::$site->pdo(), 'madejekz');
+        return $this->createDefaultDBConnection(self::$site->pdo(), 'elhazzat');
     }
 
     /**

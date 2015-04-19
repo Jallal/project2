@@ -8,14 +8,32 @@ class SudokuViewTest extends \PHPUnit_Framework_TestCase
 {
 	public function test_construct(){
 
-		$sudoku = new SudokuModel(11);
+		$row = array('id' => 12,
+			'userid' => 'dude',
+			'name' => 'The Dude',
+			'email' => 'dude@ranch.com',
+			'password' => '12345678',
+			'joined' => '2015-01-15 23:50:26',
+			'role' => '1');
+		$user = new User($row);
+		$sudo= new Sudoku();
+		$sudoku = new SudokuModel(11,$sudo,$user);
 		$view = new SudokuView($sudoku);
 		$this->assertInstanceOf('SudokuView',$view);
 	}
 
 	public function test_updateStatus()
 	{
-		$sudoku = new SudokuModel(11);
+		$row = array('id' => 12,
+			'userid' => 'dude',
+			'name' => 'The Dude',
+			'email' => 'dude@ranch.com',
+			'password' => '12345678',
+			'joined' => '2015-01-15 23:50:26',
+			'role' => '1');
+		$user = new User($row);
+		$sudo= new Sudoku();
+		$sudoku = new SudokuModel(11,$sudo,$user);
 
 
 		$sudoku->setUserGuessForCell(2,0,0);
@@ -27,7 +45,16 @@ class SudokuViewTest extends \PHPUnit_Framework_TestCase
 
 	public function test_numberOfNotes()
 	{
-		$sudoku = new SudokuModel(11);
+		$row = array('id' => 12,
+			'userid' => 'dude',
+			'name' => 'The Dude',
+			'email' => 'dude@ranch.com',
+			'password' => '12345678',
+			'joined' => '2015-01-15 23:50:26',
+			'role' => '1');
+		$user = new User($row);
+		$sudo= new Sudoku();
+		$sudoku = new SudokuModel(11,$sudo,$user);
 		$sudoku->addNoteForCell(9,0,0);
 		$status = $sudoku->getNotesForCell(0,0);
 		$this->assertContains('9',$status);
@@ -38,14 +65,7 @@ class SudokuViewTest extends \PHPUnit_Framework_TestCase
 
 	}
 
-
-	public function test_playerName(){
-		$sudoku = new SudokuModel(11);
-		$sudoku->Setusername("David");
-		$name = $sudoku->getusername();
-		$this->assertContains("David",$name);
-
-	}
+	
 }
 
 /// @endcond

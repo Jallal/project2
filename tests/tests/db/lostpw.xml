@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dataset>
-    <testp2_lostpw userid="7"
+    <sudoku_lostpw userid="7"
                    password="49506d29656ad62805497b221a6bedacc304ad6496997f17fb39431dd462cf48"
                    salt="Nohp6^v$m(`qm#$o" validator="abcdefghijklmnopqrstuvwxyzaaaaaa" />
 </dataset>
