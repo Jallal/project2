@@ -24,7 +24,8 @@ require 'lib/game.inc.php';
             <input type="hidden" name="x" value="<?php echo $_GET['x']; ?>">
             <input type="hidden" name="y" value="<?php echo $_GET['y']; ?>">
         <br><br>
-            <button form="cellguess-form" class="btn-large">Guess</button>
+            <button form="cellguess-form" class="btn-large" name="submit_button" >Guess</button>
+        </form>
 <hr>
         <br>Enter a note for cell<br>
         <form   name=usernotes" action="post/game-post.php" method="post" id="cellnote-form">
@@ -33,8 +34,7 @@ require 'lib/game.inc.php';
         <input type="hidden" name="y" value="<?php echo $_GET['y']; ?>">
         <br>
         <br>
-
-            <button form="cellnote-form" class="btn-large">Add Note</button>
+            <button form="cellnote-form"  class="btn-large"  name="note_button" >Add Note</button>
         </form>
             <p class="index-links">
                 <a href="game.php">Back to Game</a>
