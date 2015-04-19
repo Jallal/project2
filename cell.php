@@ -16,28 +16,29 @@ require 'lib/game.inc.php';
 
 <body>
 
-
-<h1>Cell Guess</h1>
-
-
     <div class="guess-box">
-    <form   name=userinput" action="post/game-post.php" method="post">
-        Enter value for cell, 0 to make the cell blank:<br>
-        <input type="text" name="cell_value" placeholder="0-9" value="">
+            <p class="heading-2">Cell Guess</p>
+        <form   name=userinput" action="post/game-post.php" method="post" id="cellguess-form">
+            Enter value for cell, 0 to make the cell blank<br>
+            <input type="text" name="cell_value" placeholder="0-9" value="" class="text-input">
+            <input type="hidden" name="x" value="<?php echo $_GET['x']; ?>">
+            <input type="hidden" name="y" value="<?php echo $_GET['y']; ?>">
+        <br><br>
+            <button form="cellguess-form" class="btn-large">Guess</button>
+<hr>
+        <br>Enter a note for cell<br>
+        <form   name=usernotes" action="post/game-post.php" method="post" id="cellnote-form">
+        <input type="text" name="cell_note" placeholder="1-9" value="" class="text-input">
         <input type="hidden" name="x" value="<?php echo $_GET['x']; ?>">
         <input type="hidden" name="y" value="<?php echo $_GET['y']; ?>">
-    <br><br>
-    <input type="submit"  name ="submit_button" value="Add Guess">
+        <br>
+        <br>
 
-    <br>Enter a note for cell:<br>
-    <form   name=usernotes" action="post/game-post.php" method="post">
-    <input type="text" name="cell_note" placeholder="1-9" value="">
-    <input type="hidden" name="x" value="<?php echo $_GET['x']; ?>">
-    <input type="hidden" name="y" value="<?php echo $_GET['y']; ?>">
-    <br>
-    <br>
-    <input type="submit"  name ="note_button" value="Add Note">
-    </form>
+            <button form="cellnote-form" class="btn-large">Add Note</button>
+        </form>
+            <p class="index-links">
+                <a href="game.php">Back to Game</a>
+            </p>
     </div>
 
 </body>

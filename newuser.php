@@ -13,8 +13,8 @@ require_once "lib/game.inc.php";
 <body>
 
 <div id="login" class="guess-box">
-    <h2>New User</h2>
-    <form method="post" action="post/newuser-post.php">
+    <p class="heading-2">New User Registration</p>
+    <form method="post" action="post/newuser-post.php" id="register-form">
         <?php
         if(isset($_SESSION['newuser-error'])) {
             echo "<p>" . $_SESSION['newuser-error'] . "</p>";
@@ -22,26 +22,30 @@ require_once "lib/game.inc.php";
         }
         ?>
         <p>
-            <label for="userid">User ID:</label><br>
-            <input type="text" id="userid" name="userid"></p>
+            <label for="userid"></label>
+            <input type="text" id="userid" name="userid" placeholder="Username" class="text-input"></p>
         <p>
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name"></p>
+            <label for="name"></label>
+            <input type="text" id="name" name="name" placeholder="First Name" class="text-input"></p>
         <p>
-            <label for="email">Email:</label><br>
-            <input type="text" id="email" name="email"></p>
+            <label for="email"></label>
+            <input type="text" id="email" name="email" placeholder="Email" class="text-input"></p>
         <p>
-            <label for="password1">Password:</label><br>
-            <input type="password" id="password1" name="password1"></p>
+            <label for="password1"></label>
+            <input type="password" id="password1" name="password1" placeholder="Password" class="text-input"></p>
         <p>
-            <label for="password2">Password (again):</label><br>
-            <input type="password" id="password2" name="password2"></p>
+            <label for="password2"></label>
+            <input type="password" id="password2" name="password2" placeholder="Password (again)" class="text-input"></p>
         <p>
-            <label for="secret">Secret:</label><br>
-            <input type="password" id="secret" name="secret"></p>
-        <p><input type="submit"></p>
+            <label for="secret"></label>
+            <input type="password" id="secret" name="secret" placeholder="Secret" class="text-input"></p>
+        <p>
+            <button form="register-form" class="btn-large">Register</button>
+        </p>
     </form>
-    <a href="index.php">Back to home page</a>
+    <p class="index-links">
+        <a href="index.php">Back to Home Page</a>
+    </p>
 </div>
 </body>
 </html>

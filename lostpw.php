@@ -13,8 +13,8 @@ require_once "lib/game.inc.php";
 <body>
 
 <div id="login" class="guess-box">
-    <h2>Lost Password</h2>
-    <form method="post" action="post/lostpw-post.php">
+    <p class="heading-2">Lost Password</p>
+    <form method="post" action="post/lostpw-post.php" id="lostpass-form">
         <?php
         if(isset($_SESSION['lostpw-error'])) {
             echo "<p>" . $_SESSION['lostpw-error'] . "</p>";
@@ -22,17 +22,21 @@ require_once "lib/game.inc.php";
         }
         ?>
         <p>
-            <label for="userid">User ID:</label><br>
-            <input type="text" id="userid" name="userid"></p>
+            <label for="userid"></label>
+            <input type="text" id="userid" name="userid" placeholder="Username" class="text-input"></p>
         <p>
-            <label for="password1">New Password:</label><br>
-            <input type="password" id="password1" name="password1"></p>
+            <label for="password1"></label>
+            <input type="password" id="password1" name="password1" placeholder="New Password" class="text-input"></p>
         <p>
-            <label for="password2">New Password (again):</label><br>
-            <input type="password" id="password2" name="password2"></p>
-        <p><input type="submit"></p>
+            <label for="password2"></label>
+            <input type="password" id="password2" name="password2" placeholder="New Password (again)" class="text-input"></p>
+        <p>
+            <button form="lostpass-form" class="btn-large">Reset Password</button>
+        </p>
     </form>
-    <a href="index.php">Back to login page</a>
+    <p class="index-links">
+        <a href="index.php">Back to Login Page</a>
+    </p>
 </div>
 </body>
 </html>

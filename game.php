@@ -28,8 +28,6 @@ $view = new SudokuView($GameSudoku);
     ?>
 </div>
 
-<p><a href="post/game-post.php?c">Cheat Mode</a></p>
-
 </body>
 </html>
 

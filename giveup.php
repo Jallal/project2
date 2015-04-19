@@ -35,7 +35,6 @@ $view = new SudokuView($GameSudoku);
 
 
 <br>
-<br>
 <div class="cells">
 
     <?php

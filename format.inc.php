@@ -8,13 +8,13 @@
 
 function present_header($title, User $user) {
     $html = "<header>";
-    $html .= "<nav><p><a href=\"post/game-post.php?m=Give up\">Give up</a></p>";
+    $html .= "<nav><a href=\"post/game-post.php?m=Give up\">Give up</a> | <a href='post/game-post.php?c'>Cheat Mode</a> | ";
 
     if($user->getUserid() !== "guest") {
-        $html .= '<p><a href="post/game-post.php?save">Save</a></p>';
-        $html .= '<p><a href="post/logout-post.php">Logout</a></p>';
+        $html .= '<a href="post/game-post.php?save">Save</a> | ';
+        $html .= '<a href="post/logout-post.php">Logout</a>';
     } else {
-        $html .= '<p><a href="post/logout-post.php">Logout of Guest</a></p>';
+        $html .= '<a href="post/logout-post.php">Logout of Guest</a>';
     }
     $html .= '</nav>';
     $html .= "<h1>$title</h1>";
