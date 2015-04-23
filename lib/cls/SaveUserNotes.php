@@ -63,7 +63,7 @@ SQL;
 
     function ClearNotes($userid) {
         $sql =<<<SQL
-DELETE FROM $this->tableName where where userid=?
+DELETE FROM $this->tableName where userid=?
 
 SQL;
 
